@@ -37,10 +37,10 @@
             background-color: var(--bg-color);
             color: var(--text-primary);
             transition: background-color 0.3s, color 0.3s;
-            overflow-x: hidden; /* Prevent horizontal scroll from blobs */
+            overflow-x: hidden; 
         }
 
-        /* Modern Background Blobs */
+        
         .blob {
             position: fixed;
             z-index: -1;
@@ -69,7 +69,7 @@
             to { transform: translate(100px, 50px) scale(1.2); }
         }
 
-        /* Cursor Follower */
+       
         .cursor-follower {
             position: fixed;
             width: 24px;
@@ -138,7 +138,6 @@
              border-bottom: 1px solid #e9ecef;
         }
 
-        /* Scroll-reveal & Staggered Animation */
         .reveal > * {
             opacity: 0;
             transform: translateY(40px);
@@ -148,7 +147,7 @@
             opacity: 1;
             transform: translateY(0);
         }
-        /* Add staggered delay to direct children */
+        
         .reveal.visible > * {
             transition-delay: calc(0.1s * var(--stagger-index, 1));
         }
@@ -224,7 +223,7 @@
             background-color: var(--primary-hover);
             transform: translateY(-3px);
             box-shadow: var(--shadow-md);
-            color: #fff; /* Ensure text color remains white on hover */
+            color: #fff; 
         }
         
         .skills-intro {
@@ -402,9 +401,9 @@
         
                             .typing-cursor { height: 1.1rem; }
         
-                            .blob1, .blob2 { display: none; } /* Hide blobs on mobile to save performance */
+                            .blob1, .blob2 { display: none; } 
         
-                            .cursor-follower { display: none; } /* Hide cursor follower on mobile */
+                            .cursor-follower { display: none; } 
         
                         }
         
@@ -605,7 +604,7 @@
 
     </div>
 
-    <!-- Advanced Internal JavaScript -->
+    
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const typingTextElement = document.getElementById('typing-text');
@@ -657,7 +656,6 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
-                    // Set stagger index for children
                     const children = entry.target.querySelectorAll('.reveal > *');
                     children.forEach((child, index) => {
                         child.style.setProperty('--stagger-index', index);
@@ -670,7 +668,6 @@
         const observer = new IntersectionObserver(observerCallback, observerOptions);
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        // Cursor Follower
         const cursorFollower = document.querySelector('.cursor-follower');
         if (cursorFollower) {
             window.addEventListener('mousemove', e => {
